@@ -26,6 +26,3 @@ def detect_text():
     print(texts[0].description)
     
     return(texts[0].description)
-
-if __name__ == "__main__":
-    detect_text()

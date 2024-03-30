@@ -1,6 +1,7 @@
-from flask import Flask, request, send_fron_directory
+from flask import Flask, request, send_from_directory
 from twilio.twiml.messaging_response import MessagingResponse
 from google.cloud import texttospeech
+from rating import rating_prompt
 
 app = Flask(__name__)
 
@@ -33,11 +34,32 @@ def text_to_audio(text):
         out.write(response.audio_content)
         print("Audio content wrtten to file output.mp3")
     
-@app.route("/ingredients", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def incoming_data():
     response = MessagingResponse()
     message = response.message()
     user_input = request.form.get("NumMedia")
 
     if user_input == "1":
-        pic_url = request.
+        picture_url = request.form.get("MediaUr10")
+
+        rating = rating_prompt(picture_url)
+        text_to_audio(rating)
+
+        message.media("./resources/output.mp3")
+        message.body("Rating & Description")
+        message.body(f"{rating}")
+
+        return str(response), 200
+    
+    else:
+        message.body("Please send a picture containing ingredients")
+        return str("Please send a picture containing ingredients")
+
+@app.route("/resources/<path:path>")
+def send_resources(path):
+    return send_from_directory("resources", path)
+
+if __name__ == "__main__":
+    app.run(host = "localhost", debug = True, port = 8080)
+
