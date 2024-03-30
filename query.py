@@ -2,23 +2,25 @@ import google.generativeai as genai
 from google.oauth2 import service_account
 from dotenv import load_dotenv
 
+from google.cloud import aiplatform
+from google.oauth2 import service_account
+from vertexai import generative_models
+from vertexai.generative_models import GenerativeModel
+
 
 import os
 
 
 load_dotenv()
 
-key = os.environ.get('API_KEY')
 
-if key is None:
-    print("API_KEY env variable is not set")
+credentials_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+credentials = service_account.Credentials.from_service_account_file(os.path.expanduser(credentials_path))
 
-else:
-    key = "foo"
+aiplatform.init(project="genai-hackathon-2024-418816", credentials=credentials)
 
-genai.configure(api_key=key)
- 
-model = genai.GenerativeModel('gemini-pro')
+
+model = GenerativeModel("gemini-1.0-pro")
 response = model.generate_content('Introduce yourself')
 
 
