@@ -6,7 +6,7 @@ def detect_text():
     """Detects text in the file."""
     client = vision.ImageAnnotatorClient()
 
-    file = os.path.abspath("resources/image.jpg")
+    file = os.path.abspath("resources/image_test.jpg")
 
     with io.open(file, "rb") as image_file:
         content = image_file.read()
@@ -33,3 +33,6 @@ def detect_text():
         )
     
     return(texts[0].description)
+
+if __name__ == "__main__":
+    detect_text()
