@@ -1,5 +1,5 @@
 # Skincare Product Rating System
-_Help Build a World with More Healthy Skincare_
+_Help Build a World with More Healthy Skincare Products_
 
 <p align="center">
 	<img width=100% src="image/Intro-1.png">
