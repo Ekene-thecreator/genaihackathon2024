@@ -2,7 +2,6 @@ import requests
 import os
 from text_detection import detect_text
 from dotenv import load_dotenv
-from google.cloud import texttospeech
 
 # Load environment variables from .env file
 load_dotenv()
