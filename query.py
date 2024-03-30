@@ -14,7 +14,7 @@ if key is None:
     print("API_KEY env variable is not set")
 
 else:
-    key = "AIzaSyBO2RVp8lJ3AVYpPdvIKWzMC1WkGDXEfPs"
+    key = "foo"
 
 genai.configure(api_key=key)
  
