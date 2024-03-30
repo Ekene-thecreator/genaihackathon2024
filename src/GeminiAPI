@@ -4,7 +4,10 @@
 
 import vertexai
 from vertexai.generative_models import GenerativeModel, Part
-
+from text_detection import detect_text
+#project number: 670945545084 
+#project_id: genai-hackathon-2024-418816
+#location: us-central1
 
 def generate_text(project_id: str, location: str) -> str:
     # Initialize Vertex AI
@@ -19,7 +22,8 @@ def generate_text(project_id: str, location: str) -> str:
                 "gs://generativeai-downloads/images/scones.jpg", mime_type="image/jpeg"
             ),
             # Add an example query
-            "what is shown in this image?",
+            "This is the ingredients of a skincare product. May you analyse each ingredient and give feedback on whether they are health or not?\n"
+            f"{detect_text()}\n",
         ]
     )
     print(response)
