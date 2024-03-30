@@ -5,15 +5,43 @@
 import vertexai
 from vertexai.generative_models import GenerativeModel, Part
 from text_detection import detect_text
-#project number: 670945545084 
-#project_id: genai-hackathon-2024-418816
-#location: us-central1
+
+# Restart kernel after installs so that your environment can access the new packages
+import IPython
+import time
+
+app = IPython.Application.instance()
+app.kernel.do_shutdown(True)
+
+
+import sys
+
+# Additional authentication is required for Google Colab
+if "google.colab" in sys.modules:
+    # Authenticate user to Google Cloud
+    from google.colab import auth
+
+    auth.authenticate_user()
+
+# Define project information
+# You can use Colab secrets if you wish to keep it hidden
+from google.colab import userdata
+# my_project = userdata.get('GCP_PROJECT_ID')
+
+LOCATION = "us-central1"  # @param {type:"string"}
+
+#print(PROJECT_ID)
+
+# Initialize Vertex AI
+import vertexai
+
+vertexai.init(project=PROJECT_ID, location=LOCATION)
 
 def generate_text(project_id: str, location: str) -> str:
     # Initialize Vertex AI
     vertexai.init(project=project_id, location=location)
     # Load the model
-    multimodal_model = GenerativeModel("gemini-1.0-pro-vision")
+    multimodal_model = GenerativeModel("gemini-1.0-pro-vision") #gemini-1.0-pro-vision (if for image)
     # Query the model
     response = multimodal_model.generate_content(
         [
