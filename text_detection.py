@@ -13,7 +13,7 @@ def detect_text():
     credentials = service_account.Credentials.from_service_account_file(credentials_path)
     client = vision.ImageAnnotatorClient(credentials=credentials)
 
-    file = os.path.abspath(r"test_images\test1.jpg")
+    file = os.path.abspath(r"test_images\test3.webp")
 
     with io.open(file, "rb") as image_file:
         content = image_file.read()
@@ -23,21 +23,7 @@ def detect_text():
     response = client.text_detection(image=image)
     texts = response.text_annotations
     print("Texts:")
-
-    for text in texts:
-        print(f'\n"{text.description}"')
-
-        vertices = [
-            f"({vertex.x},{vertex.y})" for vertex in text.bounding_poly.vertices
-        ]
-
-        print("bounds: {}".format(",".join(vertices)))
-
-    if response.error.message:
-        raise Exception(
-            "{}\nFor more info on error messages, check: "
-            "https://cloud.google.com/apis/design/errors".format(response.error.message)
-        )
+    print(texts[0].description)
     
     return(texts[0].description)
 
