@@ -23,8 +23,6 @@ def detect_text():
     response = client.text_detection(image=image)
     texts = response.text_annotations
     if texts:
-        print("Texts:")
-        print(texts[0].description)
         return texts[0].description
     else:
         return "No text found in the image."

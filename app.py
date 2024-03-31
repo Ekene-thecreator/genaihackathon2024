@@ -42,9 +42,7 @@ def incoming_data():
 
     if user_input == "1":
         picture_url = request.form.get("MediaUrl0")
-        print(picture_url)
         rating = rating_prompt(picture_url)
-        print(rating)
         text_to_audio(rating)
             
         message.media("./resources/output.mp3")  
