@@ -21,10 +21,10 @@ aiplatform.init(project="genai-hackathon-2024-418816", credentials=credentials)
 
 
 model = GenerativeModel("gemini-1.0-pro")
-response = model.generate_content('Introduce yourself')
+
+def generate_answer(prompt):
+    response = model.generate_content(prompt)
+    return response.text
 
 
-
-if __name__ == "__main__":
-    print(response.text)
     

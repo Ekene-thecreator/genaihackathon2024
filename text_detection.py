@@ -10,10 +10,10 @@ load_dotenv()
 def detect_text():
     """Detects text in the file."""
     credentials_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
-    credentials = service_account.Credentials.from_service_account_file(credentials_path)
+    credentials = service_account.Credentials.from_service_account_file(os.path.expanduser(credentials_path))
     client = vision.ImageAnnotatorClient(credentials=credentials)
 
-    file = os.path.abspath(r"resources/image.jpg")
+    file = os.path.abspath(r"resources/test1.jpg")
 
     with io.open(file, "rb") as image_file:
         content = image_file.read()
@@ -23,11 +23,11 @@ def detect_text():
     response = client.text_detection(image=image)
     texts = response.text_annotations
     if texts:
-        print("Texts:")
-        print(texts[0].description)
+        # print("Texts:")
+        # print(texts[0].description)
         return texts[0].description
     else:
-        print("No text found in the image.")
+        # print("No text found in the image.")
         return "No text found in the image."
 
 # if __name__ == "__main__":
