@@ -6,7 +6,8 @@ import os
 
 app = Flask(__name__)
 
-client = texttospeech.TextToSpeechClient()
+credentials_path = os.path.expanduser(os.getenv('GOOGLE_APPLICATION_CREDENTIALS'))
+client = texttospeech.TextToSpeechClient.from_service_account_json(credentials_path)
 
 resources_dir = 'resources'
 if not os.path.exists(resources_dir):
