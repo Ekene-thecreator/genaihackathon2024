@@ -5,40 +5,11 @@ import os
 from dotenv import load_dotenv
 import vertexai
 from vertexai.generative_models import GenerativeModel, Part
-# from text_detection import detect_text
 
 #load environment variables from .env file
 load_dotenv()
 
-# # Restart kernel after installs so that your environment can access the new packages
-# import IPython
-# import time
-
-# app = IPython.Application.instance()
-# app.kernel.do_shutdown(True)
-
-
-# import sys
-
-# # Additional authentication is required for Google Colab
-# if "google.colab" in sys.modules:
-#     # Authenticate user to Google Cloud
-#     from google.colab import auth
-
-#     auth.authenticate_user()
-
-# # Define project information
-# # You can use Colab secrets if you wish to keep it hidden
-# from google.colab import userdata
-# my_project = userdata.get('GCP_PROJECT_ID')
-
-#print(PROJECT_ID)
-
-# Initialize Vertex AI
-import vertexai
-
 vertexai.init(project= os.getenv("PROJECT_ID"), location=os.getenv("LOCATION"))
-
 from vertexai.generative_models import (
     GenerationConfig,
     GenerativeModel,
@@ -48,13 +19,53 @@ from vertexai.generative_models import (
     Part,
 )
 
+# Comment out this part because I am not input image as a parameter, but the implementation is here if you want image as an input
+"""
+# Restart kernel after installs so that your environment can access the new packages
+import IPython
+import time
+
+app = IPython.Application.instance()
+app.kernel.do_shutdown(True)
+
+
+import sys
+
+# Additional authentication is required for Google Colab
+if "google.colab" in sys.modules:
+    # Authenticate user to Google Cloud
+    from google.colab import auth
+
+    auth.authenticate_user()
+
+# Define project information
+# You can use Colab secrets if you wish to keep it hidden
+from google.colab import userdata
+my_project = userdata.get('GCP_PROJECT_ID')
+
+print(PROJECT_ID)
+"""
+
 # Load the model
 multimodal_model = GenerativeModel("gemini-1.0-pro-vision") #gemini-1.0-pro-vision (if for image)
 # Prepare contents
 prompt = "Analyze the ingredients of the skincare products, and give feedback on how healthy each one is?"
+ingredient_text = "Hyaluronic Acid, Retinol (Vitamin A)"
 
+
+"""
+Generate a response based on the provided ingredient text.
+This function uses a generative model with a predefined configuration to generate the response.
+Args:
+    ingredient_text (str): The text containing the ingredient information.
+Returns:
+    list of str: A list of generated responses based on the provided ingredient text.
+Example:
+    >>> ingredient_text = "Hyaluronic Acid: Very healthy. Moisturizes and hydrates the skin."
+    >>> responses = generate_response(ingredient_text)
+    >>> print(responses)
+"""
 def generate_response(ingredient_text):
-    # ingredient_text = f"{detect_text()}"
     contents = [prompt,ingredient_text]
     # Use a more deterministic configuration with a low temperature
     # https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini
@@ -85,4 +96,4 @@ def generate_response(ingredient_text):
     )
     #for response in responses:
     #    print(response, end="")
-    print(responses)
+    return responses
