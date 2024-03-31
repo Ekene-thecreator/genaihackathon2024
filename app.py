@@ -45,9 +45,9 @@ def incoming_data():
         rating = rating_prompt(picture_url)
         text_to_audio(rating)
             
-        message.media("./resources/output.mp3")  
         message.body("Rating & Description")
         message.body(f"{rating}")
+        message.media("resources/output.mp3") 
         return str(response), 200
     else:
         return "Please send a picture containing ingredients", 400
