@@ -1,4 +1,4 @@
-# Bodyharm SMS AI Consultant: Your Personal Healthcare Detective!
+# PokeMAMA: Your Personal Healthcare Detective!
 _"Snap a pic of the ingredients, unveil the truth about your products!"_
 
 <p align="center">
