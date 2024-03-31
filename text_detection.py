@@ -13,7 +13,7 @@ def detect_text():
     credentials = service_account.Credentials.from_service_account_file(credentials_path)
     client = vision.ImageAnnotatorClient(credentials=credentials)
 
-    file = os.path.abspath(r"resources/image.jpg")
+    file = os.path.abspath("resources/image.jpg")
 
     with io.open(file, "rb") as image_file:
         content = image_file.read()
@@ -27,7 +27,6 @@ def detect_text():
         print(texts[0].description)
         return texts[0].description
     else:
-        print("No text found in the image.")
         return "No text found in the image."
 
 # if __name__ == "__main__":

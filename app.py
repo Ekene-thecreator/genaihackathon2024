@@ -12,11 +12,6 @@ resources_dir = 'resources'
 if not os.path.exists(resources_dir):
     os.makedirs(resources_dir)
 
-def respond(message):
-    response = MessagingResponse()
-    response.message(message)
-    return str(response)
-
 def text_to_audio(text):
     synthesis_input = texttospeech.SynthesisInput(text = text)
 
@@ -42,22 +37,20 @@ def text_to_audio(text):
 @app.route("/", methods=['GET', 'POST'])
 def incoming_data():
     response = MessagingResponse()
+    message = response.message()
     user_input = request.form.get("NumMedia")
 
     if user_input == "1":
         picture_url = request.form.get("MediaUrl0")
-        if picture_url:
-            rating = rating_prompt(picture_url)
-            text_to_audio(rating)
-
-            message = response.message()
-            message.media("resources/output.mp3")  
-            message.body("Rating & Description")
-            message.body(f"{rating}")
-
-            return str(response), 200
-        else:
-            return "Invalid or missing media URL", 400
+        print(picture_url)
+        rating = rating_prompt(picture_url)
+        print(rating)
+        text_to_audio(rating)
+            
+        message.media("./resources/output.mp3")  
+        message.body("Rating & Description")
+        message.body(f"{rating}")
+        return str(response), 200
     else:
         return "Please send a picture containing ingredients", 400
 
