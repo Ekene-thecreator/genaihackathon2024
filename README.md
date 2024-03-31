@@ -43,6 +43,6 @@ The system allows users to receive feedback and ratings on food or body care pro
 ## Contributor
 - Aaron Wu
 - Ekene Akuneme
-- Ping Lu
+- Ping Lu [Github](https://github.com/pingluuu)
 - Yen Zein Kok
 
