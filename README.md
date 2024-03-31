@@ -2,7 +2,7 @@
 _"Snap a pic of the ingredients, unveil the truth about your products!"_
 
 <p align="center">
-	<img width=100% src="image/Intro-1.png">
+	<img width=100% src="image/Intro.png">
 </p>
 
 
