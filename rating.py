@@ -32,10 +32,7 @@ def get_text_from_image(url):
 
 def rating_prompt(url):
     text_from_image = get_text_from_image(url)
-    prompt = "Evaluate the safety level of the product below out of 100, based on its ingredients. \
-    List the top 5 ingredients with potential safety implications, ordered from most to least significant. \
-    Limit your response to 50 words.\
-    Product description: \n" + text_from_image
+    prompt = "I have a product that I want to consume, below is the nutritional infromation or ingredients used. Please let me know how safe this product is for consumption. Nutritional Information: \n" + text_from_image
     response = model.generate_content(prompt)
     response_without_asterisks = response.text.replace("*", "")
     print(text_from_image)
