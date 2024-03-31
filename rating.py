@@ -35,6 +35,7 @@ def rating_prompt(url):
     prompt = "Evaluate the safety level of the product below out of 100, based on its ingredients. \
     List the top 5 ingredients with potential safety implications, ordered from most to least significant. \
     Limit your response to 50 words.\
+    Also if you believe that there is not enough words in the text or enough information to access safety, output 'Not enough information' \
     Product description: \n" + text_from_image
     response = model.generate_content(prompt)
     response_without_asterisks = response.text.replace("*", "")

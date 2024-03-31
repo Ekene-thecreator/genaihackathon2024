@@ -26,6 +26,3 @@ def detect_text():
         return texts[0].description
     else:
         return "No text found in the image."
-
-# if __name__ == "__main__":
-#     detect_text()

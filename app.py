@@ -17,7 +17,7 @@ def text_to_audio(text):
 
     voice = texttospeech.VoiceSelectionParams(
         language_code = "en-US", 
-        ssml_gender = texttospeech.SsmlVoiceGender.MALE
+        ssml_gender = texttospeech.SsmlVoiceGender.FEMALE
     )
 
     audio_config = texttospeech.AudioConfig(
