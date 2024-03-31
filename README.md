@@ -11,6 +11,9 @@ The system allows users to receive feedback and ratings on food or body care pro
 
 ## Demo
 [Demonstration Video](https://www.youtube.com/watch?v=M2WjQFhyhEQ)
+<p align="center">
+	<img width=30% src="image/Demo.PNG">
+</p>
 
 
 ## Feature Highlights
