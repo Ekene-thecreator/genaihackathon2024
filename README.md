@@ -24,7 +24,7 @@ The system allows users to receive feedback and ratings on food or body care pro
 ## Technologies Used
 - Frontend: Twilio for SMS Integration
 - Backend: Flask, Ngork
-- Technologies: Python, GCP, Google Cloud Texttospeech, Google Cloud Vision
+- Technologies: Python, GCP, Google Cloud Text-to-speech, Google Cloud Vision
 
 ## Getting Started:
 - Install the necessary Python packages.
