@@ -12,6 +12,8 @@ from google.oauth2 import service_account
 from vertexai import generative_models
 from vertexai.generative_models import GenerativeModel
 
+from GeminiAPI import generate_response
+
 load_dotenv()
 
 TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
@@ -33,8 +35,8 @@ def get_text_from_image(url):
 def rating_prompt(url):
     text_from_image = get_text_from_image(url)
     prompt = "I have a product that I want to consume, below is the nutritional infromation or ingredients used. Please let me know how safe this product is for consumption. Nutritional Information: \n" + text_from_image
-    response = model.generate_content(prompt)
+    # response = model.generate_content(prompt)
+    response = generate_response(prompt, text_from_image)
     response_without_asterisks = response.text.replace("*", "")
-    print(text_from_image)
     print(response_without_asterisks)
     return response_without_asterisks
