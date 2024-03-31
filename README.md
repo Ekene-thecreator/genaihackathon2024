@@ -1,4 +1,4 @@
-# Bodyharm SMS AI Consultant
+# Bodyharm SMS AI Consultant: Your Personal Healthcare Detective!
 _"Send the photo of the ingredient, and know the risk. "_
 
 <p align="center">
