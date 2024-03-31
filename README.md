@@ -1,4 +1,4 @@
-[![GitHub](https://img.shields.io/github/license/Ekene-thecreator/genaihackathon2024)](https://raw.githubusercontent.com/Ekene-thecreator/genaihackathon2024/main/LICENSE)
+[![GitHub](https://img.shields.io/github/license/Ekene-thecreator/genaihackathon2024)](https://github.com/Ekene-thecreator/genaihackathon2024/blob/master/LICENSE)
 
 # PokeMAMA: Your Personal Healthcare Detective!
 _"Snap a pic of the ingredients, unveil the truth about your products!"_
