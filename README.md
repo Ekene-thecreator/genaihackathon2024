@@ -1,5 +1,5 @@
 # Bodyharm SMS AI Consultant: Your Personal Healthcare Detective!
-_"Send the photo of the ingredient, and know the risk. "_
+_"Snap a pic of the ingredients, unveil the truth about your products!"_
 
 <p align="center">
 	<img width=100% src="image/Intro-1.png">
@@ -11,12 +11,12 @@ The system allows users to receive feedback and ratings on food or body care pro
 
 ## Feature Highlights
 ### Ingredient Analysis
-- The system analyzes the ingredients of each product and provides information about their benefits and potential side effects.
+- The system meticulously analyzes product ingredients, providing insights into their benefits and potential side effects.
 ### SMS Integration
-- Users take a picture of the ingredient label of a product and send it to the designated phone number by SMS.
+- Users can simply snap a picture of a product's ingredient label and send it via SMS to receive detailed safety ratings and potential harm analysis.
 - The platform provides the product's safety level and potential harm to the body.
 ### All Langauge Coverage
-- The project covers the ingredient labels in multiple languages, with feedback in English.
+- With coverage for ingredient labels in multiple languages, users receive feedback in English, ensuring inclusivity and accessibility.
 
 ## Potential Upgrade
 - Feedback in customized language.
@@ -24,7 +24,7 @@ The system allows users to receive feedback and ratings on food or body care pro
 ## Technologies Used
 - Frontend: Twilio for SMS Integration
 - Backend: Flask, Ngork
-- Technologies: Python, GCP, Google Cloud Texttospeech, Google Cloud Vision
+- Technologies: Python, GCP, Google Cloud Text-to-speech, Google Cloud Vision
 
 ## Getting Started:
 - Install the necessary Python packages.
