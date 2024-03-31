@@ -32,7 +32,7 @@ def get_text_from_image(url):
 
 def rating_prompt(url):
     text_from_image = get_text_from_image(url)
-    prompt = "I have a product that I want to consume, below is the nutritional infromation or ingredients used. Please let me know how safe this product is for consumption. Nutritional Information: \n" + text_from_image
+    prompt = "I have a product that I want to consume, below is the nutritional infromation or ingredients used. Please let me know how safe this product is for consumption. The nutritional information may be in any language, however please respond in English. Highlight ingredients that you consider concerning. Nutritional Information: \n" + text_from_image
     response = model.generate_content(prompt)
     response_without_asterisks = response.text.replace("*", "")
     print(text_from_image)
