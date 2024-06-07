@@ -2,9 +2,13 @@ from flask import Flask, request, send_from_directory
 from google.cloud import texttospeech
 from rating import rating_prompt
 import os
+import pytesseract
 
 # Initialize the Flask application
 app = Flask(__name__)
+
+
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # Check if the 'resources' directory exists, create it if not
 resources_dir = 'resources'
